@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction</title>
+    <style>
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            max-width: 600px;
+            margin: 30px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            grid-column: span 2;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>  
+</head>
+<body>   
+
+    <h1 style="text-align: center;">Eye State Prediction Using EEG</h1>
+
+    <form action="/prediction" method="post"> 
+        <input type="text" name="AF3" placeholder="AF3">
+        <input type="text" name="F7" placeholder="F7">
+        <input type="text" name="F3" placeholder="F3">
+        <input type="text" name="FC5" placeholder="FC5">
+        <input type="text" name="T7" placeholder="T7">
+        <input type="text" name="P7" placeholder="P7">
+        <input type="text" name="O1" placeholder="O1">
+        <input type="text" name="O2" placeholder="O2">
+        <input type="text" name="P8" placeholder="P8">
+        <input type="text" name="T8" placeholder="T8">
+        <input type="text" name="FC6" placeholder="FC6">
+        <input type="text" name="F4" placeholder="F4">
+        <input type="text" name="F8" placeholder="F8">
+        <input type="text" name="AF4" placeholder="AF4">
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result %}
+        <h2 style="text-align: center;">Prediction: {{ result }}</h2>
+    {% endif %}
+
+</body>
+</html>

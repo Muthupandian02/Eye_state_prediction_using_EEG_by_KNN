@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description</title>
+    <style>
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            background-color: #007BFF;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(200, 231, 241);">
+    <h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; text-decoration: underline;">
+        Description for Eye State Prediction using EEG: </h1>
+    <div>
+        <p style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bold; text-align: justify; font-size: 25px;">
+            All data is from one continuous EEG measurement with the Emotiv EEG Neuroheadset. 
+            The duration of the measurement was 117 seconds. 
+            The eye state was detected via a camera during the EEG measurement and added later manually to the file after analysing the video frames. 
+            '1' indicates the eye-closed and '0' the eye-open state. 
+            All values are in chronological order with the first measured value at the top of the data.
+        </p>
+        <ul style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;text-align: justify; " >
+            <li style="font-size: 20px;">Yellow (AF3, AF4)    → Anterior frontal (attention/executive control)</li>
+            <li style="font-size: 20px;">Red (F7, F3, F4, F8) → Frontal (cognition, emotion, motor planning)</li>
+            <li style="font-size: 20px;">Orange (FC5, FC6)    → Fronto-central (decision-making, motor control)</li>
+            <li style="font-size: 20px;">Light blue (T7, T8)  → Temporal (auditory, memory)</li>
+            <li style="font-size: 20px;">Green (P7, P8)       → Parietal (sensory integration, spatial awareness)</li>
+            <li style="font-size: 20px;">Purple (O1, O2)      → Occipital (visual cortex, eye state detection)</li>
+            <li style="font-size: 20px;">'1' indicates the eye-closed and '0' the eye-open state</li>
+    </ul>
+    </div>
+        <div>
+        <br><br>
+        <center>
+            <a href="http://127.0.0.1:2000/prediction" class="btn">Click Me for Prediction</a>
+        </center>
+        <br><br><br>
+    </div>
+</body>
+</html>
