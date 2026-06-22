@@ -2,7 +2,6 @@
 
 > Predicting whether a person's eyes are open or closed — directly from brainwave data — using classical ML models, systematic evaluation, and a tuned KNN classifier deployed via FastAPI.
 
----
 
 ## 🧠 What This Project Is About
 
@@ -10,7 +9,6 @@ The human brain produces distinct electrical patterns depending on whether the e
 
 This isn't just a classification exercise. The journey here involved comparing seven models, narrowing down to the top three, tuning the best one with hyperparameter optimization, and finally wrapping it in a clean **FastAPI web app** ready for deployment.
 
----
 
 ## 📦 Dataset
 
@@ -19,7 +17,6 @@ This isn't just a classification exercise. The journey here involved comparing s
 - **Features:** 14 EEG electrode values (AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4)
 - **Target:** Eye state — `0` (Eyes Open) or `1` (Eyes Closed)
 
----
 
 ## 🔬 Model Comparison — The First Pass
 
@@ -37,7 +34,6 @@ Before jumping to the best model, all major classifiers were benchmarked. Here's
 
 **Takeaway:** Models that memorized training data (Random Forest, Decision Tree with perfect Train F1) didn't hold up well on unseen data. KNN struck the best balance between learning and generalizing.
 
----
 
 ## 🏆 Top 3 Models — Class-wise Evaluation
 
@@ -51,7 +47,6 @@ After the first round, the top three candidates — **XGBoost**, **KNN**, and **
 
 KNN consistently outperformed across both classes, making it the clear choice for hyperparameter tuning.
 
----
 
 ## ⚙️ Hyperparameter Tuning — KNN
 
@@ -72,7 +67,6 @@ The KNN classifier was tuned using **GridSearchCV** across key parameters:
 
 With **91% accuracy** and consistent precision-recall balance, the tuned KNN model is both reliable and interpretable.
 
----
 
 ## 🌐 Deployment — FastAPI Web App
 
@@ -98,7 +92,7 @@ pip install -r requirements.txt
 uvicorn main:app --reload
 
 # 4. Open in browser
-http://127.0.0.1:8000
+http://127.0.0.1:2000
 ```
 
 ---
@@ -108,18 +102,34 @@ http://127.0.0.1:8000
 ```
 Eye_state_prediction_using_EEG_by_KNN/
 │
-├── dataset/
-│   └── eeg_eye_state.csv          # Raw dataset
+├── image/
+│   └── prediction finalized.mp4
+│   └── eeg_electrode.png
+│   └── image-1.png
+│   └── image.png
 │
-├── model/
+├── notebook/
+│   └── task.ipynb          # Raw dataset
+│   └── DS Mini Project Guidelines.docx
+│
+├── pickle_files/
 │   └── knn_model.pkl              # Saved KNN model (joblib)
+│   └── scaler.pkl
+│
+├── image/
+│   └── boxplot1.png
+│   └── boxplot.png
+│   └── kdeplot.png
+│   └── kdeplot2.png
+│   └── pairplot.png
+│   └── piechart.png
 │
 ├── templates/
 │   ├── home.html                  # Landing page
 │   ├── description.html           # Project description
 │   └── prediction.html            # Prediction interface
 │
-├── main.py                        # FastAPI application
+├── app.py                        # FastAPI application
 ├── model_training.ipynb           # EDA, training, evaluation notebook
 ├── requirements.txt               # Python dependencies
 └── README.md
